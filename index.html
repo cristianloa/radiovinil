@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio App | Vinyl Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="css/radioapp.png" type="image/png">
+</head>
+<body>
+  <!--<header id="header">
+    <div class="container header-container">
+      <div class="logo-container">
+        <img src="css/radioapp.png" alt="Logo" class="header-logo">
+        <h1>RADIO APP</h1>
+      </div>
+      <button id="theme-toggle" aria-label="Cambiar tema">
+        <i class="fas fa-adjust"></i>
+      </button>
+    </div>
+  </header>-->
+
+  <main id="main">
+    
+    <div class="container turntable-wrapper">
+      
+      <!-- Botón INFO flotante -->
+      <button class="info-float-btn" id="open-info-btn" aria-label="Información">
+        <i class="fas fa-info-circle"></i>
+      </button>
+
+      <!-- Menú Desplegable -->
+      <div class="tuner-section">
+        <label for="station-select" class="tuner-label">/// SELECCIONAR FRECUENCIA</label>
+        <div class="select-wrapper">
+          <select id="station-select">
+            <option value="" disabled selected>-- Elige una estación --</option>
+          </select>
+          <i class="fas fa-chevron-down select-arrow"></i>
+        </div>
+      </div>
+<!-- Logo Radio Vinil estilo Fender -->
+  <div class="fender-logo">
+    <span class="fender-text">Radio Vinil</span>
+  </div>
+      <!-- El Tocadiscos -->
+      <div class="turntable">
+        <div class="platter">
+          <div class="vinyl-record" id="vinyl">
+            <div class="vinyl-label">
+              <span id="vinyl-text">STANDBY</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Brazo: reposo FUERA, play SOBRE el vinilo -->
+        <div class="tonearm" id="tonearm">
+          <div class="tonearm-pivot"></div>
+          <div class="tonearm-arm"></div>
+          <div class="tonearm-head"></div>
+        </div>
+      </div>
+
+      <!-- Controles completos -->
+<div class="deck-controls">
+  <div class="controls-row">
+    <div class="controls-left">
+      <button class="ctrl-btn" id="prev-btn" aria-label="Anterior">
+        <i class="fas fa-backward"></i>
+      </button>
+      <button class="ctrl-btn play-btn" id="play-pause-btn" disabled>
+        <i class="fas fa-play"></i>
+      </button>
+      <button class="ctrl-btn" id="next-btn" aria-label="Siguiente">
+        <i class="fas fa-forward"></i>
+      </button>
+    </div>
+    <div class="controls-right">
+      <button class="ctrl-btn" id="mute-btn" aria-label="Silenciar">
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <button class="ctrl-btn" id="theme-toggle" aria-label="Cambiar tema">
+        <i class="fas fa-adjust"></i>
+      </button>
+    </div>
+  </div>
+  <div class="status-display">
+    <span class="status-label">ESTADO</span>
+    <span id="status-text" class="status-text">EN ESPERA</span>
+  </div>
+</div>
+
+      <!-- Títulos clickeables -->
+      <div class="footer-links">
+        <button class="footer-link" data-section="about">/// ACERCA DE</button>
+        <span class="footer-divider">·</span>
+        <button class="footer-link" data-section="contact">/// CONTACTO</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Audio oculto -->
+  <audio id="audio-player">
+    <source id="audio-source" src="" type="audio/mpeg">
+  </audio>
+
+  <!-- POPUP MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="about">ACERCA DE</button>
+        <button class="modal-tab" data-tab="contact">CONTACTO</button>
+      </div>
+
+      <div class="modal-content">
+        <div class="tab-panel active" id="tab-about">
+          <h3 class="tab-title">/// ACERCA DE</h3>
+          <p>Desarrollado por <strong>Cristian Loaiza Huallpa</strong>. Una experiencia de sintonización minimalista, diseñada para los amantes del sonido clásico y la simplicidad.</p>
+          <a href="https://www.linkedin.com/in/cristianloaizahuallpa" target="_blank" class="retro-link">
+            <i class="fab fa-linkedin"></i> Perfil Profesional
+          </a>
+        </div>
+
+        <div class="tab-panel" id="tab-contact">
+          <h3 class="tab-title">/// CONTACTO</h3>
+          <div class="contact-list">
+            <a href="mailto:cristianloaizahuallpa@gmail.com" class="contact-line">
+              <i class="fas fa-envelope"></i>
+              <span>cristianloaizahuallpa@gmail.com</span>
+            </a>
+            <a href="https://wa.me/51927898835" target="_blank" class="contact-line">
+              <i class="fab fa-whatsapp"></i>
+              <span>+51 927 898 835</span>
+            </a>
+            <a href="https://www.linkedin.com/in/cristianloaizahuallpa" target="_blank" class="contact-line">
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container">
+      <p>© 2024 RADIO APP · ANALOG SOUL, DIGITAL HEART</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

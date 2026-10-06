@@ -1,0 +1,659 @@
+:root {
+  --bg: #0a0a0a;
+  --panel: #141414;
+  --accent: #ffaa00;
+  --accent-glow: rgba(255, 170, 0, 0.4);
+  --text: #888888;
+  --text-bright: #e0e0e0;
+  --border: #2a2a2a;
+  --font-classic: 'Playfair Display', serif;
+  --font-tech: 'Space Mono', monospace;
+}
+/* Logo estilo Fender */
+.fender-logo {
+  position: absolute;
+  top: 125px;
+  left: 86px;
+  z-index: 10;
+}
+
+.fender-text {
+  font-family: 'Brush Script MT', 'Segoe Script', 'Apple Chancery', cursive;
+  font-size: 38px;
+  font-weight: 700;
+  color: #E4002B; /* Rojo Fender clásico */
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.5),
+    0 0 20px rgba(228, 0, 43, 0.3);
+  letter-spacing: 1px;
+  transform: rotate(-45deg);
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.fender-text:hover {
+  transform: rotate(-5deg) scale(1.05);
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.5),
+    0 0 30px rgba(228, 0, 43, 0.5);
+}
+
+/* Ajuste del main sin header */
+#main {
+  padding: 20px 0 60px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+body.light-theme {
+  --bg: #e8e4dc;
+  --panel: #dcd8d0;
+  --accent: #cc5500;
+  --accent-glow: rgba(204, 85, 0, 0.2);
+  --text: #666666;
+  --text-bright: #1a1a1a;
+  --border: #c0bcb4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-tech);
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+#header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+/* Main */
+#main {
+  padding: 40px 0 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.turntable-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Botón INFO flotante */
+.info-float-btn {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.info-float-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: scale(1.1);
+}
+
+/* Menú desplegable */
+.tuner-section {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.tuner-label {
+  display: block;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.select-wrapper { position: relative; }
+#station-select {
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-bright);
+  font-family: var(--font-classic);
+  font-size: 16px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  outline: none;
+}
+#station-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+.select-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  pointer-events: none;
+  font-size: 12px;
+}
+#station-select option {
+  background: var(--panel);
+  color: var(--text-bright);
+}
+
+/* TOCADISCOS */
+.turntable {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin-bottom: 30px;
+}
+
+.platter {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.8),
+    inset 0 2px 5px rgba(255,255,255,0.05),
+    0 0 0 8px var(--panel),
+    0 0 0 9px var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl-record {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: 
+    repeating-radial-gradient(
+      #111 0, #111 1.5px, 
+      #1c1c1c 2px, #1c1c1c 3px
+    );
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 0 20px rgba(0,0,0,0.8),
+    0 0 0 2px #000;
+}
+
+.vinyl-record.spinning {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.vinyl-label {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent), #cc7700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 
+    inset 0 0 15px rgba(0,0,0,0.4),
+    0 0 20px var(--accent-glow);
+  z-index: 2;
+  position: relative;
+}
+
+.vinyl-label::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+}
+
+#vinyl-text {
+  font-family: var(--font-tech);
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 1px;
+  padding: 10px;
+  line-height: 1.3;
+  max-width: 80px;
+  word-wrap: break-word;
+}
+
+/* ============================================ */
+/* BRAZO DEL TOCADISCOS - FUNCIONAMIENTO INVERTIDO */
+/* ============================================ */
+.tonearm {
+  position: absolute;
+  top: 30px;
+  right: -30px;
+  width: 180px;
+  height: 20px;
+  transform-origin: right center;
+  /* REPOSO/PAUSA: aguja FUERA del vinilo (apunta hacia arriba-derecha) */
+  transform: rotate(-90deg);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+}
+
+/* REPRODUCIENDO: aguja se POSA sobre el vinilo */
+.tonearm.playing {
+  transform: rotate(-50deg);
+}
+
+.tonearm-pivot {
+  position: absolute;
+  right: -15px;
+  top: -10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ddd, #666);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.3);
+  z-index: 3;
+}
+
+.tonearm-arm {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(to bottom, #bbb, #777);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.tonearm-head {
+  position: absolute;
+  left: -2px;
+  top: 3px;
+  width: 28px;
+  height: 14px;
+  background: linear-gradient(to bottom, #444, #222);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.tonearm-head::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 5px;
+  width: 5px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 1px;
+  box-shadow: 0 0 6px var(--accent-glow);
+}
+
+/* ============================================ */
+/* CONTROLES COMPLETOS - SEPARADOS */
+/* ============================================ */
+.deck-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.controls-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ctrl-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 2px solid var(--border);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--border), 0 8px 16px rgba(0,0,0,0.3);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctrl-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.ctrl-btn:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 var(--border), inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Botón Play más grande */
+.ctrl-btn.play-btn {
+  width: 72px;
+  height: 72px;
+  font-size: 26px;
+}
+
+/* Botón Mute activo */
+.ctrl-btn.muted {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.status-display { text-align: center; }
+.status-label {
+  display: block;
+  font-size: 10px;
+  color: var(--text);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.status-text {
+  font-family: var(--font-classic);
+  font-size: 16px;
+  color: var(--text);
+  transition: all 0.3s;
+}
+.status-text.active {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Títulos clickeables */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  max-width: 500px;
+  justify-content: center;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-tech);
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+}
+.footer-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.footer-divider {
+  color: var(--border);
+  font-size: 10px;
+}
+
+/* MODAL POPUP */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 2;
+}
+.modal-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-tab {
+  flex: 1;
+  padding: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-tech);
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.modal-tab:hover { color: var(--text-bright); }
+.modal-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.tab-panel.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-title {
+  font-family: var(--font-tech);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.tab-panel p {
+  font-size: 14px;
+  color: var(--text-bright);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.retro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-bright);
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+  transition: all 0.2s;
+}
+.retro-link:hover { color: var(--accent); border-color: var(--accent); }
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-bright);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.contact-line:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+.contact-line i {
+  color: var(--accent);
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Footer */
+#footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.4;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .turntable { width: 320px; height: 320px; }
+  .vinyl-record { width: 290px; height: 290px; }
+  .vinyl-label { width: 100px; height: 100px; }
+  #vinyl-text { font-size: 9px; max-width: 60px; }
+  
+  .tonearm {
+    width: 140px;
+    right: -20px;
+  }
+  .tonearm-arm { width: 110px; }
+  
+  .info-float-btn {
+    top: -15px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .controls-row { 
+    gap: 12px; 
+    max-width: 320px;
+  }
+  .controls-left { gap: 12px; }
+  .ctrl-btn { width: 48px; height: 48px; font-size: 18px; }
+  .ctrl-btn.play-btn { width: 64px; height: 64px; font-size: 24px; }
+  
+  .modal-content { padding: 20px; }
+    .fender-logo {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .fender-text {
+    font-size: 36px;
+  }
+}
