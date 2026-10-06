@@ -649,11 +649,11 @@ body {
   
   .modal-content { padding: 20px; }
     .fender-logo {
-    top: 20px;
-    left: 20px;
+    top: 110px;
+    left: 8px;
   }
   
   .fender-text {
-    font-size: 36px;
+    font-size: 26px;
   }
 }
