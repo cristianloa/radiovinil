@@ -12,14 +12,14 @@
 /* Logo estilo Fender */
 .fender-logo {
   position: absolute;
-  top: 125px;
-  left: 86px;
+  top: 110px;
+  left: 90px;
   z-index: 10;
 }
 
 .fender-text {
   font-family: 'Brush Script MT', 'Segoe Script', 'Apple Chancery', cursive;
-  font-size: 38px;
+  font-size: 25px;
   font-weight: 700;
   color: #E4002B; /* Rojo Fender clásico */
   text-shadow: 
@@ -40,7 +40,7 @@
 
 /* Ajuste del main sin header */
 #main {
-  padding: 20px 0 60px;
+  padding: 20px 0 0;
   display: flex;
   justify-content: center;
   position: relative;
