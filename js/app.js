@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Elementos del DOM
   const stationSelect = document.getElementById('station-select');
+  const stationsListDesktop = document.getElementById('stations-list-desktop');
   const audioPlayer = document.getElementById('audio-player');
   const audioSource = document.getElementById('audio-source');
   const playPauseBtn = document.getElementById('play-pause-btn');
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const tonearm = document.getElementById('tonearm');
   const vinylText = document.getElementById('vinyl-text');
   const statusText = document.getElementById('status-text');
+  const circularTextElement = document.querySelector('.station-circular-text textPath');
   
   // Elementos del modal
   const modalOverlay = document.getElementById('modal-overlay');
@@ -48,16 +50,39 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentIndex = -1;
   let previousVolume = 1;
 
-  // 1. Llenar el menú desplegable
+  // 1. Llenar el menú desplegable (Móvil) y la lista (Desktop)
   stationsList.forEach((station, index) => {
+    // Opción para el dropdown móvil
     const option = document.createElement('option');
     option.value = station.url;
     option.textContent = station.name;
     option.dataset.index = index;
     stationSelect.appendChild(option);
+    
+    // Item para la lista desktop
+    const stationItem = document.createElement('div');
+    stationItem.className = 'station-item';
+    stationItem.dataset.index = index;
+    stationItem.innerHTML = `
+      <i class="fas fa-radio"></i>
+      <span>${station.name}</span>
+    `;
+    stationItem.addEventListener('click', () => {
+      currentIndex = index;
+      stationSelect.selectedIndex = index + 1;
+      loadAndPlay(index);
+    });
+    stationsListDesktop.appendChild(stationItem);
   });
 
-  // 2. Selección de estación desde el dropdown
+  // Función para resaltar la estación activa en la lista desktop
+  function updateActiveStation(index) {
+    document.querySelectorAll('.station-item').forEach((item, i) => {
+      item.classList.toggle('active', i === index);
+    });
+  }
+
+  // 2. Selección de estación desde el dropdown (Móvil)
   stationSelect.addEventListener('change', function() {
     currentIndex = parseInt(this.options[this.selectedIndex].dataset.index);
     loadAndPlay(currentIndex);
@@ -70,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       currentIndex--;
     }
-    stationSelect.selectedIndex = currentIndex + 1; // +1 por el option disabled
+    stationSelect.selectedIndex = currentIndex + 1;
     loadAndPlay(currentIndex);
   });
 
@@ -112,13 +137,22 @@ document.addEventListener('DOMContentLoaded', function() {
     audioSource.src = station.url;
     audioPlayer.load();
     
-    vinylText.textContent = station.name.length > 14 ? station.name.substring(0, 12) + '...' : station.name;
+    const displayName = station.name.length > 14 ? station.name.substring(0, 12) + '...' : station.name;
+    vinylText.textContent = displayName;
+    
+    // Actualizar texto circular
+    if (circularTextElement) {
+      const circularText = station.name + ' • ' + station.name + ' • ';
+      circularTextElement.textContent = circularText;
+    }
+    
     statusText.textContent = "CARGANDO...";
     statusText.classList.remove('active');
     playPauseBtn.disabled = false;
     prevBtn.disabled = false;
     nextBtn.disabled = false;
     
+    updateActiveStation(index);
     playAudio();
   }
 
@@ -140,21 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateUIState(playing) {
-  const icon = playPauseBtn.querySelector('i');
-  if (playing) {
-    icon.className = 'fas fa-pause';
-    vinyl.classList.add('spinning');
-    tonearm.classList.add('playing'); // ← Agrega clase 'playing' (aguja sobre vinilo)
-    statusText.textContent = "REPRODUCIENDO";
-    statusText.classList.add('active');
-  } else {
-    icon.className = 'fas fa-play';
-    vinyl.classList.remove('spinning');
-    tonearm.classList.remove('playing'); // ← Quita clase 'playing' (aguja fuera)
-    statusText.textContent = "EN PAUSA";
-    statusText.classList.remove('active');
+    const icon = playPauseBtn.querySelector('i');
+    if (playing) {
+      icon.className = 'fas fa-pause';
+      vinyl.classList.add('spinning');
+      tonearm.classList.add('playing');
+      statusText.textContent = "REPRODUCIENDO";
+      statusText.classList.add('active');
+    } else {
+      icon.className = 'fas fa-play';
+      vinyl.classList.remove('spinning');
+      tonearm.classList.remove('playing');
+      statusText.textContent = "EN PAUSA";
+      statusText.classList.remove('active');
+    }
   }
-}
 
   // 7. Lógica del MODAL POPUP
   function openModal(tabName = 'about') {
