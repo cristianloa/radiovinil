@@ -12,93 +12,107 @@
   <link rel="icon" href="css/radioapp.png" type="image/png">
 </head>
 <body>
-  <!--<header id="header">
-    <div class="container header-container">
-      <div class="logo-container">
-        <img src="css/radioapp.png" alt="Logo" class="header-logo">
-        <h1>RADIO APP</h1>
-      </div>
-      <button id="theme-toggle" aria-label="Cambiar tema">
-        <i class="fas fa-adjust"></i>
-      </button>
-    </div>
-  </header>-->
-
   <main id="main">
-    
-    <div class="container turntable-wrapper">
-      
-      <!-- Botón INFO flotante -->
-      <button class="info-float-btn" id="open-info-btn" aria-label="Información">
-        <i class="fas fa-info-circle"></i>
-      </button>
+    <!-- Logo Radio Vinil estilo Fender -->
+    <div class="fender-logo">
+      <span class="fender-text">Radio Vinil</span>
+    </div>
 
-      <!-- Menú Desplegable -->
-      <div class="tuner-section">
-        <label for="station-select" class="tuner-label">/// SELECCIONAR FRECUENCIA</label>
-        <div class="select-wrapper">
-          <select id="station-select">
-            <option value="" disabled selected>-- Elige una estación --</option>
-          </select>
-          <i class="fas fa-chevron-down select-arrow"></i>
+    <div class="container app-layout">
+      
+      <!-- Lista de estaciones (Desktop/Tablet) -->
+      <aside class="stations-list-container">
+        <label class="tuner-label">/// ESTACIONES DISPONIBLES</label>
+        <div class="stations-scroll-list" id="stations-list-desktop">
+          <!-- Se llena dinámicamente con JS -->
         </div>
-      </div>
-<!-- Logo Radio Vinil estilo Fender -->
-  <div class="fender-logo">
-    <span class="fender-text">Radio Vinil</span>
-  </div>
-      <!-- El Tocadiscos -->
-      <div class="turntable">
-        <div class="platter">
-          <div class="vinyl-record" id="vinyl">
-            <div class="vinyl-label">
-              <span id="vinyl-text">STANDBY</span>
-            </div>
+      </aside>
+
+      <!-- Contenedor del Reproductor -->
+      <div class="turntable-wrapper">
+        
+        <!-- Menú Desplegable (Solo Móvil) -->
+        <div class="tuner-section mobile-only">
+          <label for="station-select" class="tuner-label">/// SELECCIONAR FRECUENCIA</label>
+          <div class="select-wrapper">
+            <select id="station-select">
+              <option value="" disabled selected>-- Elige una estación --</option>
+            </select>
+            <i class="fas fa-chevron-down select-arrow"></i>
           </div>
         </div>
-        
-        <!-- Brazo: reposo FUERA, play SOBRE el vinilo -->
-        <div class="tonearm" id="tonearm">
-          <div class="tonearm-pivot"></div>
-          <div class="tonearm-arm"></div>
-          <div class="tonearm-head"></div>
+
+        <!-- El Tocadiscos -->
+        <div class="turntable">
+          <div class="platter">
+            <div class="vinyl-record" id="vinyl">
+              <!-- Brillo del vinilo -->
+              <div class="vinyl-shine"></div>
+              
+              <!-- Texto circular de la estación -->
+              <svg class="vinyl-text-circle" viewBox="0 0 200 200">
+                <defs>
+                  <path id="textCircle" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+                </defs>
+                <text class="station-circular-text">
+                  <textPath href="#textCircle" startOffset="0%">
+                    RADIO MAGICA • RADIO MAGICA • 
+                  </textPath>
+                </text>
+              </svg>
+              
+              <div class="vinyl-label">
+                <span id="vinyl-text">STANDBY</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Brazo: reposo FUERA, play SOBRE el vinilo -->
+          <div class="tonearm" id="tonearm">
+            <div class="tonearm-pivot"></div>
+            <div class="tonearm-arm"></div>
+            <div class="tonearm-head"></div>
+          </div>
         </div>
-      </div>
 
-      <!-- Controles completos -->
-<div class="deck-controls">
-  <div class="controls-row">
-    <div class="controls-left">
-      <button class="ctrl-btn" id="prev-btn" aria-label="Anterior">
-        <i class="fas fa-backward"></i>
-      </button>
-      <button class="ctrl-btn play-btn" id="play-pause-btn" disabled>
-        <i class="fas fa-play"></i>
-      </button>
-      <button class="ctrl-btn" id="next-btn" aria-label="Siguiente">
-        <i class="fas fa-forward"></i>
-      </button>
-    </div>
-    <div class="controls-right">
-      <button class="ctrl-btn" id="mute-btn" aria-label="Silenciar">
-        <i class="fas fa-volume-up"></i>
-      </button>
-      <button class="ctrl-btn" id="theme-toggle" aria-label="Cambiar tema">
-        <i class="fas fa-adjust"></i>
-      </button>
-    </div>
-  </div>
-  <div class="status-display">
-    <span class="status-label">ESTADO</span>
-    <span id="status-text" class="status-text">EN ESPERA</span>
-  </div>
-</div>
+        <!-- Controles completos -->
+        <div class="deck-controls">
+          <div class="controls-row">
+            <div class="controls-left">
+              <button class="ctrl-btn" id="prev-btn" aria-label="Anterior">
+                <i class="fas fa-backward"></i>
+              </button>
+              <button class="ctrl-btn play-btn" id="play-pause-btn" disabled>
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="ctrl-btn" id="next-btn" aria-label="Siguiente">
+                <i class="fas fa-forward"></i>
+              </button>
+            </div>
+            <div class="controls-right">
+              <button class="ctrl-btn" id="open-info-btn" aria-label="Información">
+                <i class="fas fa-info-circle"></i>
+              </button>
+              <button class="ctrl-btn" id="mute-btn" aria-label="Silenciar">
+                <i class="fas fa-volume-up"></i>
+              </button>
+              <button class="ctrl-btn" id="theme-toggle" aria-label="Cambiar tema">
+                <i class="fas fa-adjust"></i>
+              </button>
+            </div>
+          </div>
+          <div class="status-display">
+            <span class="status-label">ESTADO</span>
+            <span id="status-text" class="status-text">EN ESPERA</span>
+          </div>
+        </div>
 
-      <!-- Títulos clickeables -->
-      <div class="footer-links">
-        <button class="footer-link" data-section="about">/// ACERCA DE</button>
-        <span class="footer-divider">·</span>
-        <button class="footer-link" data-section="contact">/// CONTACTO</button>
+        <!-- Títulos clickeables -->
+        <div class="footer-links">
+          <button class="footer-link" data-section="about">/// ACERCA DE</button>
+          <span class="footer-divider">·</span>
+          <button class="footer-link" data-section="contact">/// CONTACTO</button>
+        </div>
       </div>
     </div>
   </main>
