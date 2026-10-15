@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const stationsList = [
     { name: 'LOFI 24/7', url: 'https://ec3.yesstreaming.net:3755/stream' },
+    { name: 'LA NOVENTERA', url: 'https://host.gometri.com/proxy/lanoventera/stream' },
     { name: 'RADIO OXÍGENO', url: 'https://mdstrm.com/audio/5fab0687bcd6c2389ee9480c/icecast.audio' },
     { name: 'RADIO MÁGICA', url: 'https://mdstrm.com/audio/6839e28eb3fdc597ac2e2e43/icecast.audio?property=aiir&_=224873' },
     { name: 'RADIO FIT', url: 'https://node-15.zeno.fm/fb9sp98vc5zuv' },
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'LAS QUENAS', url: 'https://radio.lnx.pe:7000/stream' },
     { name: 'SALKANTAY', url: 'http://167.114.118.119:7662/stream' },
     { name: 'MEGA STEREO', url: 'https://cast1.my-control-panel.com/proxy/megaestereo/stream' },
-    { name: 'COCA RAYMI', url: 'https://stream.zeno.fm/di4yvkfirz0vv' },
     { name: 'ROCK EN ESPAÑOL', url: 'https://stream.zeno.fm/0vgy8qv3feruv' }
   ];
 
