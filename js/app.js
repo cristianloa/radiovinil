@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'LA NOVENTERA', url: 'https://host.gometri.com/proxy/lanoventera/stream' },
     { name: 'RADIO OXÍGENO', url: 'https://mdstrm.com/audio/5fab0687bcd6c2389ee9480c/icecast.audio' },
     { name: 'RADIO MÁGICA', url: 'https://mdstrm.com/audio/6839e28eb3fdc597ac2e2e43/icecast.audio?property=aiir&_=224873' },
+    { name: 'ROCK EN ESPAÑOL', url: 'https://stream.zeno.fm/0vgy8qv3feruv' },
+    { name: 'Z ROCK & POP', url: 'https://radioz.egostreaming.pe/radio/3e4f6a1b2c3d4e567890abcd/' },
+    { name: 'STUDIO 92', url: 'https://gcdn.2mdn.net/videoplayback/id/0751c120d4c7c8a1/itag/345/source/web_video_ads/xpc/EgVovf3BOg%3D%3D/ctier/L/acao/yes/ip/0.0.0.0/ipbits/0/expire/1752812287/sparams/ip,ipbits,expire,id,itag,source,xpc,ctier,acao/signature/36B65E93093AE4B3E88C9C65B223187B837A084D.3E4DFCA2EC3288AF4DF879EDD389CCBEBE88331C/key/ck2/file/file.mp4' },
+    { name: 'RADIO DISNEY', url: 'https://26643.live.streamtheworld.com/DISNEY_PER_LM_SC?dist=web-radiodisney-disneylatino' },
+    { name: 'RADIO OASIS', url: 'https://stream.zeno.fm/3bhmjhlsl0wvv' },
     { name: 'RADIO FIT', url: 'https://node-15.zeno.fm/fb9sp98vc5zuv' },
     { name: 'RADIO FELICIDAD', url: 'https://mdstrm.com/audio/5fad731fcf097a068af3c8f7/icecast.audio' },
     { name: 'RADIO RPP', url: 'https://mdstrm.com/audio/5fab3416b5f9ef165cfab6e9/icecast.audio' },
@@ -12,14 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'PANAMERICANA', url: 'https://mdstrm.com/audio/6598b62dded1380470f4e539/icecast.audio' },
     { name: 'RITMO ROMÁNTICA', url: 'https://23113.live.streamtheworld.com/CRP_RIT_SC?csegid=30008&dist=30008' },
     { name: 'RADIO CORAZÓN', url: 'https://mdstrm.com/audio/5fada514fc16c006bd63370f/icecast.audio' },
-    { name: 'Z ROCK & POP', url: 'https://radioz.egostreaming.pe/radio/3e4f6a1b2c3d4e567890abcd/' },
-    { name: 'STUDIO 92', url: 'https://gcdn.2mdn.net/videoplayback/id/0751c120d4c7c8a1/itag/345/source/web_video_ads/xpc/EgVovf3BOg%3D%3D/ctier/L/acao/yes/ip/0.0.0.0/ipbits/0/expire/1752812287/sparams/ip,ipbits,expire,id,itag,source,xpc,ctier,acao/signature/36B65E93093AE4B3E88C9C65B223187B837A084D.3E4DFCA2EC3288AF4DF879EDD389CCBEBE88331C/key/ck2/file/file.mp4' },
-    { name: 'RADIO DISNEY', url: 'https://26643.live.streamtheworld.com/DISNEY_PER_LM_SC?dist=web-radiodisney-disneylatino' },
-    { name: 'RADIO OASIS', url: 'https://stream.zeno.fm/3bhmjhlsl0wvv' },
     { name: 'LAS QUENAS', url: 'https://radio.lnx.pe:7000/stream' },
     { name: 'SALKANTAY', url: 'http://167.114.118.119:7662/stream' },
-    { name: 'MEGA STEREO', url: 'https://cast1.my-control-panel.com/proxy/megaestereo/stream' },
-    { name: 'ROCK EN ESPAÑOL', url: 'https://stream.zeno.fm/0vgy8qv3feruv' }
+    { name: 'MEGA STEREO', url: 'https://cast1.my-control-panel.com/proxy/megaestereo/stream' }
+    
   ];
 
   // Elementos del DOM
