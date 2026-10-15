@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'Z ROCK & POP', url: 'https://radioz.egostreaming.pe/radio/3e4f6a1b2c3d4e567890abcd/' },
     { name: 'STUDIO 92', url: 'https://gcdn.2mdn.net/videoplayback/id/0751c120d4c7c8a1/itag/345/source/web_video_ads/xpc/EgVovf3BOg%3D%3D/ctier/L/acao/yes/ip/0.0.0.0/ipbits/0/expire/1752812287/sparams/ip,ipbits,expire,id,itag,source,xpc,ctier,acao/signature/36B65E93093AE4B3E88C9C65B223187B837A084D.3E4DFCA2EC3288AF4DF879EDD389CCBEBE88331C/key/ck2/file/file.mp4' },
     { name: 'RADIO DISNEY', url: 'https://26643.live.streamtheworld.com/DISNEY_PER_LM_SC?dist=web-radiodisney-disneylatino' },
-    { name: 'RADIO OASIS', url: 'https://stream.zeno.fm/3bhmjhlsl0wvv' },
+    { name: 'RADIO OASIS?', url: 'https://stream-281.surfernetwork.com/tk4wmqvnnnruv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ0azR3bXF2bm5ucnV2IiwiaG9zdCI6InN0cmVhbS0yODEuc3VyZmVybmV0d29yay5jb20iLCJydHRsIjo1LCJqdGkiOiI5T19yMG9aZFJUMlpBSnUydnk4SkNnIiwiaWF0IjoxNzkyMDk1MTM4LCJleHAiOjE3OTIwOTUxOTh9.HSpOm-9QLSgQhnY89_QH92zkKhSTxw_yhbUdAoKxdXM' },
+    { name: 'RADIO OASIS', url: 'https://stream-281.surfernetwork.com/6thd050c6p8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiI2dGhkMDUwYzZwOHV2IiwiaG9zdCI6InN0cmVhbS0yODEuc3VyZmVybmV0d29yay5jb20iLCJydHRsIjo1LCJqdGkiOiI4SXJtM0VNTVM4eV9WbW10cXdKcnJRIiwiaWF0IjoxNzkyMDk1MzU5LCJleHAiOjE3OTIwOTU0MTl9.3cSwkRc1CkFgdkQx7WKsR-iIeDMWq5I__jn9ZzND2kY' },
+   
     { name: 'RADIO FIT', url: 'https://node-15.zeno.fm/fb9sp98vc5zuv' },
     { name: 'RADIO FELICIDAD', url: 'https://mdstrm.com/audio/5fad731fcf097a068af3c8f7/icecast.audio' },
     { name: 'RADIO RPP', url: 'https://mdstrm.com/audio/5fab3416b5f9ef165cfab6e9/icecast.audio' },
