@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'LOFI 24/7', url: 'https://ec3.yesstreaming.net:3755/stream' },
     { name: 'LA NOVENTERA', url: 'https://host.gometri.com/proxy/lanoventera/stream' },
     { name: 'RADIO OXÍGENO', url: 'https://mdstrm.com/audio/5fab0687bcd6c2389ee9480c/icecast.audio' },
-    { name: 'RADIO MÁGICA', url: 'https://mdstrm.com/audio/6839e28eb3fdc597ac2e2e43/icecast.audio?property=aiir&_=224873' },
+    { name: 'RADIO MÁGICA 🤘', url: 'https://mdstrm.com/audio/6839e28eb3fdc597ac2e2e43/icecast.audio?property=aiir&_=224873' },
     { name: 'ROCK EN ESPAÑOL', url: 'https://stream.zeno.fm/0vgy8qv3feruv' },
     { name: 'Z ROCK & POP', url: 'https://radioz.egostreaming.pe/radio/3e4f6a1b2c3d4e567890abcd/' },
     { name: 'STUDIO 92', url: 'https://gcdn.2mdn.net/videoplayback/id/0751c120d4c7c8a1/itag/345/source/web_video_ads/xpc/EgVovf3BOg%3D%3D/ctier/L/acao/yes/ip/0.0.0.0/ipbits/0/expire/1752812287/sparams/ip,ipbits,expire,id,itag,source,xpc,ctier,acao/signature/36B65E93093AE4B3E88C9C65B223187B837A084D.3E4DFCA2EC3288AF4DF879EDD389CCBEBE88331C/key/ck2/file/file.mp4' },
